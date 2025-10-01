@@ -74,6 +74,58 @@ a:hover {
   color: #e0d9ff;
 }
 
+.contatti-button {
+  display: inline-block;
+  background-color: #7e48f6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+.contatti-button:hover {
+  background-color: #5e2fd9;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #7e48f6;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background-color: #7e48f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #5e2fd9;
+}
+
+
 /* ---------------------------- */
 /* 📱 VERSIONE RESPONSIVE */
 /* ---------------------------- */
