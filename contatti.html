@@ -36,23 +36,25 @@
     </form>
 </div>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-    
-    (function(){
-        emailjs.init("XdTpBKSrBdtpQti8j"); 
-    })();
 
+<script type="text/javascript">
+    emailjs.init("XdTpBKSrBdtpQti8j");
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Invia l'email
-        emailjs.sendForm('service_ucmekca', 'template_rijeund', this)
-            .then(function() {
+        const templateParams = {
+            user_name: document.getElementById('nome').value,
+            user_email: document.getElementById('email').value,
+            message: document.getElementById('messaggio').value
+        };
+        emailjs.send('service_ucmekca', 'template_rijeund', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
                 alert('Messaggio inviato con successo!');
                 document.getElementById('contact-form').reset();
             }, function(error) {
-                alert('Errore nell\'invio del messaggio. Riprova più tardi.');
-                console.error('Errore:', error);
+                console.log('ERRORE:', error);
+                alert('Errore nell\'invio: ' + error.text);
             });
     });
 </script>
