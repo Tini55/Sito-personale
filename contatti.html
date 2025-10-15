@@ -21,40 +21,41 @@
     </div>
 
     <div class="right-column">
-      <h1>Modulo di Contatto</h1>
-
-      <form action="#" method="post" class="contact-form">
+    <h1>Modulo di Contatto</h1>
+    <form id="contact-form" class="contact-form">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" required>
-
+        <input type="text" id="nome" name="user_name" required>
+        
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
+        <input type="email" id="email" name="user_email" required>
+        
         <label for="messaggio">Messaggio</label>
-        <textarea id="messaggio" name="messaggio" rows="6" required></textarea>
-
+        <textarea id="messaggio" name="message" rows="6" required></textarea>
+        
         <button type="submit">Invia</button>
-      </form>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-      <script type="text/javascript">
-        (function(){
-            emailjs.init("PGCCadJh9yAfg6cth");
-        })();
-    </script>
-    <script type="text/javascript">
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    </form>
+</div>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    
+    (function(){
+        emailjs.init("PGCCadJh9yAfg6cth"); 
+    })();
 
-            emailjs.sendForm('service_ucmekca', 'template_rijeund', this)
-                .then(function() {
-                    alert('Email inviata con successo!');
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    alert('Errore nell\'invio: ' + JSON.stringify(error));
-                });
-        });
-    </script>
-    </div>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Invia l'email
+        emailjs.sendForm('service_ucmekca', 'template_rijeund', this)
+            .then(function() {
+                alert('Messaggio inviato con successo!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Errore nell\'invio del messaggio. Riprova più tardi.');
+                console.error('Errore:', error);
+            });
+    });
+</script>
   </div>
 
 </body>
