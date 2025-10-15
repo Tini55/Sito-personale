@@ -35,6 +35,25 @@
 
         <button type="submit">Invia</button>
       </form>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <script type="text/javascript">
+        (function(){
+            emailjs.init("PGCCadJh9yAfg6cth");
+        })();
+    </script>
+    <script type="text/javascript">
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_ucmekca', 'template_rijeund', this)
+                .then(function() {
+                    alert('Email inviata con successo!');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Errore nell\'invio: ' + JSON.stringify(error));
+                });
+        });
+    </script>
     </div>
   </div>
 
