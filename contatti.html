@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contatta Francesca Cantini</title>
   <link rel="icon" href="favicon_purple.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./css/Scss/style.css">
+  <link rel="stylesheet" href="./assets/css/scss/style.css">
 </head>
 <body>
 
@@ -36,29 +36,8 @@
     </form>
 </div>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script type="text/javascript">
-    emailjs.init("XdTpBKSrBdtpQti8j");
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const templateParams = {
-            user_name: document.getElementById('nome').value,
-            user_email: document.getElementById('email').value,
-            message: document.getElementById('messaggio').value
-        };
-        emailjs.send('service_ucmekca', 'template_rijeund', templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('Messaggio inviato con successo!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                console.log('ERRORE:', error);
-                alert('Errore nell\'invio: ' + error.text);
-            });
-    });
-</script>
-  </div>
+    <script type="text/javascript" src="./assets/script.js"></script>
+</div>
 
 </body>
 </html>
